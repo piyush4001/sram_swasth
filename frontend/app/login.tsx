@@ -46,7 +46,7 @@ export default function Login() {
         style={styles.input}
       />
 
-      <Button title="Login" onPress={handleLogin} />
+      <Button title="Login" onPress={handleLogin} color="#16A34A" />
     </View>
   );
 }

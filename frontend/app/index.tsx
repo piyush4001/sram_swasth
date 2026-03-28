@@ -43,7 +43,7 @@ export default function Landing() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0F172A",
+    backgroundColor: "#f3f5fc",
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
@@ -56,12 +56,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#fff",
+    color: "#000000",
     marginBottom: 10,
   },
   subtitle: {
     fontSize: 14,
-    color: "#94A3B8",
+    color: "#000000",
     marginBottom: 40,
     textAlign: "center",
   },

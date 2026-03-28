@@ -63,7 +63,7 @@ export default function RegisterForm() {
         style={styles.input}
       />
 
-      <Button title="Register" onPress={handleRegister} />
+      <Button title="Register" onPress={handleRegister} color="#16A34A" />
     </View>
   );
 }
@@ -71,21 +71,21 @@ export default function RegisterForm() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0F172A",
+    backgroundColor: "#fff",
     padding: 20,
     justifyContent: "center",
   },
   title: {
-    color: "#fff",
+    color: "#000000",
     fontSize: 20,
     marginBottom: 20,
     textAlign: "center",
   },
   input: {
     borderWidth: 1,
-    borderColor: "#334155",
+    borderColor: "#03c010",
     padding: 10,
     marginBottom: 15,
-    color: "#fff",
+    color: "#000000",
   },
 });

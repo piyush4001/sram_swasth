@@ -32,24 +32,24 @@ export default function Register() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0F172A",
+    backgroundColor: "#f3f5fc",
     padding: 20,
     justifyContent: "center",
   },
   title: {
-    color: "#fff",
+    color: "#000000",
     fontSize: 24,
     marginBottom: 30,
     textAlign: "center",
   },
   card: {
-    backgroundColor: "#1E293B",
+    backgroundColor: "#22C55E",
     padding: 15,
     borderRadius: 10,
     marginBottom: 15,
   },
   cardText: {
-    color: "#22C55E",
+    color: "#fff",
     fontSize: 16,
     textAlign: "center",
   },
