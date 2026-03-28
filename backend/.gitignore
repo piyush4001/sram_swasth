@@ -1,0 +1,22 @@
+# dependencies
+node_modules/
+
+# build files
+dist/
+
+# environment variables
+
+
+# logs
+logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# prisma
+prisma/migrations/
+
+# IDE
+.vscode/

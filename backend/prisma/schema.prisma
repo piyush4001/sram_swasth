@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  VENDOR
+  FIELD_STAFF
+  DOCTOR
+  PATIENT
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  phone     String   @unique
+  password  String
+  role      Role
+  district  String?
+  createdBy String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  patient   Patient?
+}
+
+model Patient {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  samagraId       String?
+  abhaId          String?
+  isApproved      Boolean  @default(false)
+  qrCode          String?
+  lastCheckupDate DateTime?
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user            User     @relation(fields: [userId], references: [id])
+  visits          Visit[]
+}
+model Camp {
+  id        String   @id @default(uuid())
+  name      String
+  location  String
+  date      DateTime
+  tier      String   // TIER_0, TIER_1, TIER_2
+
+  vendorId  String
+
+  createdAt DateTime @default(now())
+}
+
+model Visit {
+  id              String   @id @default(uuid())
+  patientId       String
+  campId          String
+  fieldStaffId    String
+  doctorId        String?
+  tier            String
+
+  formData        Json
+  photoUrl        String?
+  gpsLat          Float?
+  gpsLng          Float?
+
+  diagnosis       String?
+  prescription    String?
+
+  createdAt       DateTime @default(now())
+
+  patient         Patient  @relation(fields: [patientId], references: [id])
+  report          Report?
+}
+
+model Report {
+  id          String   @id @default(uuid())
+  visitId     String   @unique
+  patientId   String
+
+  diagnosis   String
+  prescription String
+
+  reportUrl   String?   // PDF later
+
+  createdAt   DateTime @default(now())
+
+  visit       Visit    @relation(fields: [visitId], references: [id])
+}
+
